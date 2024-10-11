@@ -1,5 +1,6 @@
 // TODO: Include packages needed for this application
 import inquirer from 'inquirer';
+import fs from 'fs/promises';
 
 let answers;
 
@@ -45,17 +46,59 @@ const questions = [
     }
 ];
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+// dTODO: Create a function to write README file
+const writeToFile = (filename, data) => {
+    fs.writeFile(filename, data)
+        .then((err) => {
+            err ? console.error(err) : console.log("Success");
+        });
+};
 
-// TODO: Create a function to initialize app
+// dTODO: Create a function to initialize app
 function init() {
-    inquirer.prompt(answers)
-    .then((answers) => {
-        console.log(answers);
-    }
-    );
-}
+    inquirer.prompt(questions)
+        .then((answers) => {
+            const text = `
+# ${answers.title}
+
+### Table of Contents
+[Description](#Description)
+
+[Installation](#Installation)
+
+[Usage](#Usage)
+
+[Contributing](#Contributing)
+
+[Test](#Test)
+
+[License](#License)
+
+[Questions](#Questions)
+
+## Description
+${answers.description}
+## Installation
+${answers.installation}
+## Usage
+${answers.usage}
+## Contributing
+${answers.contribute}
+## Test
+${answers.test}
+## License
+This application is covered under the ${answers.license} license.
+## Questions
+Questions can be directed to:
+
+Github: ${answers.profile}
+
+email: ${answers.email}
+`
+            writeToFile('READMEtogo.md', text);
+        }
+        );
+};
 
 // Function call to initialize app
 init();
