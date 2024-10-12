@@ -87,7 +87,7 @@ ${answers.contribute}
 ## Test
 ${answers.test}
 ## License
-This application is covered under the ${answers.license} license.
+${licenseBlurb(answers.license)}
 ## Questions
 Questions can be directed to:
 
@@ -99,6 +99,22 @@ email: ${answers.email}
         }
         );
 };
+
+const licenseBlurb = (whichLicense) => {
+    switch (whichLicense) {
+        case 'MIT':
+            return `
+This software is licensed under (MIT)[https://choosealicense.com/licenses/mit/]`
+            break;
+        case 'GPLv3':
+            return `
+This software is licensed under (GNUv3)[https://choosealicense.com/licenses/gpl-3.0/]`
+        default:
+            return `
+This software is unlicensed.`
+            break;
+    }
+}
 
 // Function call to initialize app
 init();
