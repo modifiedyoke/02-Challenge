@@ -104,11 +104,11 @@ const licenseBlurb = (whichLicense) => {
     switch (whichLicense) {
         case 'MIT':
             return `
-This software is licensed under (MIT)[https://choosealicense.com/licenses/mit/]`
+This software is licensed under [MIT](https://choosealicense.com/licenses/mit/)`
             break;
         case 'GPLv3':
             return `
-This software is licensed under (GNUv3)[https://choosealicense.com/licenses/gpl-3.0/]`
+This software is licensed under [GNUv3](https://choosealicense.com/licenses/gpl-3.0/)`
         default:
             return `
 This software is unlicensed.`
