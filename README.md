@@ -6,6 +6,9 @@ No installation is required. Simply copy the repository.
 Run the index.js file in bash  
 `node index`  
 A file named "READMEtogo.md" will be generated for take out. Rename the file to README.md after it is copied to the desired location.
+
+![GenME Usage](https://github.com/user-attachments/assets/97673abf-abd5-43cf-832f-4ead0961a183)
+
 ## Contribute
 Anyone is welcome to contribute.
 ### Contact
